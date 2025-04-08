@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Crime Server API
+  version: 1.0.0
+  description: API for fetching crime data from Brottsplatskartan
+
+paths:
+  /crimes:
+    get:
+      summary: Get recent crimes in Karlstad
+      responses:
+        "200":
+          description: List of crimes
+  /crimes/locations:
+    get:
+      summary: Get headlines of recent crimes
+      responses:
+        "200":
+          description: List of crime headlines
+  /crimes/search:
+    get:
+      summary: Search crimes by city
+      parameters:
+        - name: city
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of crimes in the specified city
+  /crimes/latest:
+    get:
+      summary: Get the latest crime event
+      responses:
+        "200":
+          description: Latest crime event
